@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary: #DB4444;
+  --primary-hover: #E07575;
+  --secondary: #F5F5F5;
+  --secondary-bg: #FEFAF1;
+  --black: #000000;
+  --white: #FFFFFF;
+  
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #7D8184;
+  
+  /* UI Colors */
+  --border: #D9D9D9;
+  --success: #00FF66;
+  
+  /* Fonts */
+  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-poppins);
+  background-color: var(--white);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Base Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-poppins);
+}
+
+/* Reusable Components */
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 16px 48px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--black);
+  border: 1px solid var(--border);
+  padding: 16px 48px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--black);
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* Typography Classes */
+.heading-large {
+  font-family: var(--font-inter);
+  font-size: 110px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 110px;
+}
+
+.heading-3 {
+  font-family: var(--font-inter);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 48px;
+}
+
+/* Form Styles */
+input, textarea {
+  font-family: var(--font-poppins);
+  background-color: var(--secondary);
+  border: none;
+  padding: 16px;
+  border-radius: 4px;
+  width: 100%;
+  color: var(--text-primary);
+}
+
+input:focus, textarea:focus {
+  outline: 1px solid var(--border);
+}
+
+/* Action Icon Buttons */
+.action-icon-btn {
+  background-color: var(--white);
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  transition: all 0.3s ease;
+  color: var(--black);
+}
+
+.action-icon-btn:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.action-icon-btn.wishlisted {
+  color: var(--primary);
+}
+
+.action-icon-btn.wishlisted svg {
+  fill: currentColor;
+}
+
+.action-icon-btn.wishlisted:hover {
+  color: var(--white);
+}
+
+/* --- Responsive Utilities --- */
+
+/* Base mobile hiding/stacking */
+.hide-on-mobile {
+  display: block;
+}
+
+.hide-on-desktop {
+  display: none;
+}
+
+.mobile-stack {
+  display: flex;
+}
+
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.admin-sidebar {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-right: 1px solid #eaeaea;
+  padding-right: 24px;
+}
+
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--primary);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  font-weight: 500;
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Breakpoint for Mobile / Tablet */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .hide-on-desktop {
+    display: block !important;
+  }
+  
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .search-bar-container {
+    display: none !important;
+  }
+  
+  .mobile-stack {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .heading-large {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  
+  .heading-3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .btn-primary, .btn-outline {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .admin-sidebar {
+    width: 100%;
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 24px;
+  }
+  
+  .products-sidebar {
+    max-width: 100% !important;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+  }
+  
+  .products-search-sort {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+}
+

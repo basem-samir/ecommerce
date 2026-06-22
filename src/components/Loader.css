@@ -1,0 +1,74 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  width: 100%;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary, #DB4444);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Skeleton Animations */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.skeleton-card, .skeleton-table {
+  width: 100%;
+}
+
+.skeleton-card .skeleton-img,
+.skeleton-card .skeleton-text,
+.skeleton-table .skeleton-row {
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 1000px 100%;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  border-radius: 4px;
+}
+
+/* Card Skeleton */
+.skeleton-card .skeleton-img {
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+.skeleton-card .skeleton-text {
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.skeleton-card .skeleton-text.short {
+  width: 60%;
+}
+
+/* Table Skeleton */
+.skeleton-table .skeleton-row {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.skeleton-table .skeleton-row.header {
+  height: 50px;
+  background: #e2e2e2;
+  background-image: linear-gradient(to right, #e2e2e2 0%, #d5d5d5 20%, #e2e2e2 40%, #e2e2e2 100%);
+}
